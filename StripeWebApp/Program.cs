@@ -37,7 +37,7 @@ public class Program
 
         app.MapControllerRoute(
             name: "default",
-            pattern: "{controller=PaymentController}/{action=Index}/{id?}");
+            pattern: "{controller=Payment}/{action=Index}/{id?}");
 
         app.Run();
     }

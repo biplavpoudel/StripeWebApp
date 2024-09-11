@@ -5,13 +5,13 @@
             @foreach (var item in Model)
             {
             <div class="col-3">
-                <div>
+                <div class="item">
                     <form class="d-flex justify-content-center" style="position:relative;" asp-action="CreateCheckout" method="post">
                         <input type="hidden" name="Id" value="@item.Id"/>
-                        <img src="@item.ImageURL" name="ImageUrl" style="width:70%;" />
-                        <h6 name="Name" style="position:absolute; top:40%">@item.Name</h6>
+                        <img class="itemImg" src="@item.ImageURL" name="ImageUrl" style="width:70%;" />
+                        <h6 class="itemTitle" name="Name" style="position:absolute; top:40%">@item.Name</h6>
                         <input type="hidden" name="PriceId" value="@item.PriceId"/>
-                        <input class="btn btn-dark" type="submit" value="Checkout" style="position: absolute; top:60%;"/>
+                        <input class="itemBtn btn btn-dark" type="submit" value="Checkout" style="position: absolute; top:60%;"/>
                     </form>
                 </div>
             </div>

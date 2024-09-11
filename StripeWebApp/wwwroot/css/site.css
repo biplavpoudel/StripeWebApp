@@ -20,3 +20,15 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.itemTitle, .itemBtn {
+    opacity: 0 !important;
+}
+
+.item:hover .itemTitle, .item:hover .itemBtn {
+    opacity: 1 !important;
+}
+
+.item:hover .itemImg {
+    opacity: 0.4 !important;
+}
