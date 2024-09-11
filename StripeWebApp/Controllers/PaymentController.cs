@@ -1,13 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Stripe.Checkout;
+using StripeWebApp.Data;
 
 namespace StripeWebApp.Controllers;
 
 public class PaymentController : Controller
 {
-    public IActionResult Index()
+    private readonly MvcContext _context;
+    public PaymentController(MvcContext context)
     {
-        return View();
+        _context = context;
+    }
+
+    public async Task<IActionResult> Index()
+    {
+        return View(await _context.Items.ToListAsync());
     }
 
     [HttpPost]
