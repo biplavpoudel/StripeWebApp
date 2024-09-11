@@ -1,5 +1,8 @@
 namespace StripeWebApp;
+
+using Microsoft.EntityFrameworkCore;
 using Stripe;
+using StripeWebApp.Data;
 
 public class Program
 {
@@ -8,6 +11,9 @@ public class Program
         var builder = WebApplication.CreateBuilder(args);
 
         // Add services to the container.
+
+        builder.Services.AddDbContext<MvcContext>(options => 
+            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString")));
         builder.Services.AddControllersWithViews();
 
         var app = builder.Build();

@@ -13,7 +13,7 @@ public class PaymentController : Controller
     [HttpPost]
     public ActionResult CreateCheckout()
     {
-        var domain = "http://localhost:7117";
+        var domain = "https://localhost:7117";
         var options = new SessionCreateOptions
         {
             LineItems = new List<SessionLineItemOptions>
@@ -21,7 +21,7 @@ public class PaymentController : Controller
                   new SessionLineItemOptions
                   {
                     // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-                    Price = "{{PRICE_ID}}",
+                    Price = "price_1PxVsPGQ0Ax7Gk1I9dOxpWS5",
                     Quantity = 1,
                   },
                 },
@@ -32,7 +32,7 @@ public class PaymentController : Controller
         var service = new SessionService();
         Session session = service.Create(options);
 
-        Response.Headers.Add("Location", session.Url);
+        Response.Headers.Append("Location", session.Url);
         return new StatusCodeResult(303);
     }
 
